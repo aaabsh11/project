@@ -20,10 +20,9 @@ const recipes = [
   },
 ];
 
-// Функция для отображения списка рецептов
 function displayRecipes(recipes) {
   const recipesContainer = document.getElementById("recipes-container");
-  recipesContainer.innerHTML = ""; // Очищаем контейнер перед добавлением новых рецептов
+  recipesContainer.innerHTML = "";
 
   recipes.forEach((recipe) => {
     const recipeCard = document.createElement("div");
@@ -39,7 +38,6 @@ function displayRecipes(recipes) {
   });
 }
 
-// Функция для отображения детальной информации о рецепте
 function viewRecipe(id) {
   const recipe = recipes.find((recipe) => recipe.id === id);
   if (recipe) {
@@ -49,13 +47,11 @@ function viewRecipe(id) {
       .join("");
     document.getElementById("recipe-instructions").textContent =
       recipe.instructions;
-    // Здесь можно также добавить код для перехода на страницу детального просмотра рецепта
   } else {
     alert("Рецепт не найден");
   }
 }
 
-// Обработчик события отправки формы поиска
 document
   .getElementById("search-form")
   .addEventListener("submit", function (event) {
@@ -69,5 +65,4 @@ document
     displayRecipes(results);
   });
 
-// При загрузке страницы отображаем все рецепты
 displayRecipes(recipes);
